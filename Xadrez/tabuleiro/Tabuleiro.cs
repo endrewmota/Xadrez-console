@@ -40,17 +40,28 @@ namespace tabuleiro
             pecas[pos.linha, pos.coluna] = p;
             p.posicao = pos;
         }
-
-        public bool posicaoValida(Posicao pos)
+        public Peca retirarPeca(Posicao pos)
         {
-            if(pos.linha<0 || pos.linha>=linhas || pos.coluna<0 || pos.coluna>=colunas)
+            if (peca(pos) == null)
             {
-                return false;
+                return null;
             }
-            return true;
+            Peca aux = peca(pos);
+            aux.posicao = null;
+            pecas[pos.linha, pos.coluna] = null;
+            return aux;
         }
+         private bool posicaoValida(Posicao pos)
+            {
+                if (pos.linha < 0 || pos.linha >= linhas || pos.coluna < 0 || pos.coluna >= colunas)
+                {
+                    return false;
+                }
+                return true;
+            }
+        
 
-        public void validarPosicao(Posicao pos)
+        private void validarPosicao(Posicao pos)
         {
             if (!posicaoValida(pos))
             {
@@ -59,3 +70,4 @@ namespace tabuleiro
         }
     }
 }
+    
