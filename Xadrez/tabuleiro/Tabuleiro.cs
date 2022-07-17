@@ -51,7 +51,7 @@ namespace tabuleiro
             pecas[pos.linha, pos.coluna] = null;
             return aux;
         }
-         private bool posicaoValida(Posicao pos)
+         public bool posicaoValida(Posicao pos)
             {
                 if (pos.linha < 0 || pos.linha >= linhas || pos.coluna < 0 || pos.coluna >= colunas)
                 {
@@ -61,7 +61,7 @@ namespace tabuleiro
             }
         
 
-        private void validarPosicao(Posicao pos)
+        public void validarPosicao(Posicao pos)
         {
             if (!posicaoValida(pos))
             {
